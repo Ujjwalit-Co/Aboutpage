@@ -1,0 +1,30 @@
+.marquee{
+    width: 100%;
+    height: 5rem;
+    background-color: wheat;
+    overflow: hidden;
+    display: flex;
+    gap: 1rem;
+    user-select: none;
+    transition: 1s;
+    .marquee-content{
+        display: flex;
+        min-width: 100%;
+        align-items: center;
+        height: 100%;
+        gap: 1rem;
+        flex-shrink: 0;
+        justify-content: space-around;
+        font-size: 1.5rem;
+        animation: marqueeScroll 10s linear infinite;
+    }
+}
+
+@keyframes marqueeScroll{
+from{
+transform: translateX(0);
+}
+to{
+transform: translateX(calc(-100% - 1rem));
+}
+}

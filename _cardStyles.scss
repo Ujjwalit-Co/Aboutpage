@@ -1,0 +1,87 @@
+.blog-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem;
+    height: fit-content;
+}
+#cards:hover > .cards > .card-border{
+    opacity: 1;
+} 
+.cards{
+    background-color: rgba(255, 255, 255, 0.1);
+    min-height: 260px;
+    width: 300px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s linear;
+}
+.cards::before,
+.cards > .card-border{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 500ms, background 5ms;
+}
+.cards::before{
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.06), transparent 60%);
+    z-index: 3;
+    pointer-events: none;
+}
+.cards > .card-border{
+    background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.03), transparent 40%);
+    z-index: 1;
+}
+.cards:hover::before{
+    opacity: 1;
+}
+.cards.aiml-card:hover::before{
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), #ff00ff1a, transparent 40%);
+}
+.cards.aiml-card:hover > .card-border{
+    background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), #ff00fffd, transparent 40%);
+}
+.cards.frontend-card:hover::before{
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), #00ffff1a, transparent 40%);
+}
+.cards.frontend-card:hover > .card-border{
+    background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), #00fffffd, transparent 40%);
+}
+.cards.coding-card:hover::before{
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), #ffff001a, transparent 40%);
+}
+.cards.coding-card:hover > .card-border{
+    background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), #ffff00fd, transparent 40%);
+}
+.cards.tech-card:hover::before{
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), #ff00001a, transparent 40%);
+}
+.cards.tech-card:hover > .card-border{
+    background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), #ff0000fd, transparent 40%);
+}
+.cards > .card-content{
+    background-color: rgb(23,23,23);
+    min-height: calc(260px - 2px);
+    height: calc(100% - 2px);
+    width: calc(100% - 2px);
+    border-radius: inherit;
+    margin: 1px;
+    z-index: 2;
+    position: relative;
+}
+.cards > .card-content{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    color: #fff;
+    gap: 1rem;
+}
